@@ -51,16 +51,16 @@
 
 ## Phase 4: 003-RAG-Chatbot-Backend (API)
 
-- [ ] TASK-03-01 Initialize Python/FastAPI project in `backend/`
-- [ ] TASK-03-02 Install dependencies (fastapi, qdrant-client, google-generativeai) in `backend/requirements.txt`
-- [ ] TASK-03-03 Configure Environment Variables (.env) for Gemini API and Qdrant
-- [ ] TASK-03-04 Implement Qdrant client connection in `backend/src/vector_db.py`
-- [ ] TASK-03-05 Implement Gemini 2.5 Flash client in `backend/src/llm_client.py`
-- [ ] TASK-03-06 Create document ingestion script to parse MDX from `docusaurus/docs/` in `backend/scripts/ingest.py`
-- [ ] TASK-03-07 [P] Run ingestion script to populate Qdrant vector store
-- [ ] TASK-03-08 Implement `POST /chat` endpoint in `backend/src/main.py`
-- [ ] TASK-03-09 Implement RAG logic (Retrieve -> Augment -> Generate) in `backend/src/rag_engine.py`
-- [ ] TASK-03-10 Add health check endpoint `GET /health` in `backend/src/main.py`
+- [x] TASK-03-01 Initialize Python/FastAPI project in `backend/`
+- [x] TASK-03-02 Install dependencies (fastapi, qdrant-client, google-generativeai) in `backend/requirements.txt`
+- [x] TASK-03-03 Configure Environment Variables (.env) for Gemini API and Qdrant
+- [x] TASK-03-04 Implement Qdrant client connection in `backend/src/vector_db.py`
+- [x] TASK-03-05 Implement Gemini 2.5 Flash client in `backend/src/llm_client.py`
+- [x] TASK-03-06 Create document ingestion script to parse MDX from `docusaurus/docs/` in `backend/scripts/ingest.py`
+- [ ] TASK-03-07 [P] Run ingestion script to populate Qdrant vector store (Manual Execution Required)
+- [x] TASK-03-08 Implement `POST /chat` endpoint in `backend/src/main.py`
+- [x] TASK-03-09 Implement RAG logic (Retrieve -> Augment -> Generate) in `backend/src/rag_engine.py`
+- [x] TASK-03-10 Add health check endpoint `GET /health` in `backend/src/main.py`
 
 ## Phase 5: 004-Embedded-Chatbot-Widget (Frontend)
 
