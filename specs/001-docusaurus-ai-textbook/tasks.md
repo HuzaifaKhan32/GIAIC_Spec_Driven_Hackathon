@@ -6,37 +6,37 @@
 
 ## Phase 1: 001-Docusaurus-Homepage-Setup (Foundation)
 
-- [x] TASK-01-01 Create Docusaurus project with Typescript in `docusaurus/`
-- [x] TASK-01-02 Install project dependencies (react, react-dom, clsx, etc.) in `docusaurus/package.json`
-- [x] TASK-01-03 Configure `docusaurus/docusaurus.config.js` with project metadata and plugins
-- [x] TASK-01-04 [P] Clean up default Docusaurus generated pages and components in `docusaurus/src/`
-- [x] TASK-01-05 Extract dark theme colors from design to `docusaurus/src/css/custom.css`
-- [x] TASK-01-06 Create light theme color palette in `docusaurus/src/css/custom.css`
-- [x] TASK-01-07 Implement `Header` component structure in `docusaurus/src/components/Header/index.tsx`
-- [x] TASK-01-08 Implement `Header` styling in `docusaurus/src/components/Header/Header.module.css`
-- [x] TASK-01-09 Implement `Footer` component structure in `docusaurus/src/components/Footer/index.tsx`
-- [x] TASK-01-10 Implement `Footer` styling in `docusaurus/src/components/Footer/Footer.module.css`
-- [x] TASK-01-11 Implement `useTheme` hook for localStorage persistence in `docusaurus/src/hooks/useTheme.ts`
-- [x] TASK-01-12 Implement `ThemeToggle` component in `docusaurus/src/components/ThemeToggle/index.tsx`
-- [x] TASK-01-13 Build Homepage layout matching `screen.png` in `docusaurus/src/pages/index.js`
-- [x] TASK-01-14 [P] Implement responsive media queries (320px, 768px) in `docusaurus/src/css/responsive.css`
-- [x] TASK-01-15 Verify accessibility (WCAG AA) and Lighthouse score > 90
+- [ ] TASK-01-01 Create Docusaurus project with Typescript in `docusaurus/`
+- [ ] TASK-01-02 Install project dependencies (react, react-dom, clsx, etc.) in `docusaurus/package.json`
+- [ ] TASK-01-03 Configure `docusaurus/docusaurus.config.js` with project metadata and plugins
+- [ ] TASK-01-04 [P] Clean up default Docusaurus generated pages and components in `docusaurus/src/`
+- [ ] TASK-01-05 Extract dark theme colors from design to `docusaurus/src/css/custom.css`
+- [ ] TASK-01-06 Create light theme color palette in `docusaurus/src/css/custom.css`
+- [ ] TASK-01-07 Implement `Header` component structure in `docusaurus/src/components/Header/index.tsx`
+- [ ] TASK-01-08 Implement `Header` styling in `docusaurus/src/components/Header/Header.module.css`
+- [ ] TASK-01-09 Implement `Footer` component structure in `docusaurus/src/components/Footer/index.tsx`
+- [ ] TASK-01-10 Implement `Footer` styling in `docusaurus/src/components/Footer/Footer.module.css`
+- [ ] TASK-01-11 Implement `useTheme` hook for localStorage persistence in `docusaurus/src/hooks/useTheme.ts`
+- [ ] TASK-01-12 Implement `ThemeToggle` component in `docusaurus/src/components/ThemeToggle/index.tsx`
+- [ ] TASK-01-13 Build Homepage layout matching `screen.png` in `docusaurus/src/pages/index.js`
+- [ ] TASK-01-14 [P] Implement responsive media queries (320px, 768px) in `docusaurus/src/css/responsive.css`
+- [ ] TASK-01-15 Verify accessibility (WCAG AA) and Lighthouse score > 90
 
 ## Phase 2: 002-Create-Robotics-Book-Chapters (Content)
 
-- [x] TASK-02-01 [P] Create folder structure for chapters in `docusaurus/docs/`
-- [x] TASK-02-02 Write Chapter 1: Introduction to Physical AI in `docusaurus/docs/01-intro-physical-ai.md`
-- [x] TASK-02-03 Write Chapter 2: Sensors and Actuators in `docusaurus/docs/02-sensors-actuators.md`
-- [x] TASK-02-04 Write Chapter 3: Kinematics and Dynamics in `docusaurus/docs/03-kinematics-dynamics.md`
-- [x] TASK-02-05 Write Chapter 4: Computer Vision for Robotics in `docusaurus/docs/04-computer-vision.md`
-- [x] TASK-02-06 Write Chapter 5: Reinforcement Learning Basics in `docusaurus/docs/05-rl-basics.md`
-- [x] TASK-02-07 Write Chapter 6: Sim2Real Transfer in `docusaurus/docs/06-sim2real.md`
-- [x] TASK-02-08 Write Chapter 7: Humanoid Locomotion in `docusaurus/docs/07-humanoid-locomotion.md`
-- [x] TASK-02-09 Write Chapter 8: Manipulation and Grasping in `docusaurus/docs/08-manipulation.md`
-- [x] TASK-02-10 Write Chapter 9: Human-Robot Interaction in `docusaurus/docs/09-hri.md`
-- [x] TASK-02-11 Write Chapter 10: Future of Humanoids in `docusaurus/docs/10-future.md`
-- [x] TASK-02-12 [P] Compile Glossary of terms from all chapters in `docusaurus/docs/glossary.md`
-- [x] TASK-02-13 Validate all internal links and image references
+- [ ] TASK-02-01 [P] Create folder structure for chapters in `docusaurus/docs/`
+- [ ] TASK-02-02 Write Chapter 1: Introduction to Physical AI in `docusaurus/docs/01-intro-physical-ai.md`
+- [ ] TASK-02-03 Write Chapter 2: Sensors and Actuators in `docusaurus/docs/02-sensors-actuators.md`
+- [ ] TASK-02-04 Write Chapter 3: Kinematics and Dynamics in `docusaurus/docs/03-kinematics-dynamics.md`
+- [ ] TASK-02-05 Write Chapter 4: Computer Vision for Robotics in `docusaurus/docs/04-computer-vision.md`
+- [ ] TASK-02-06 Write Chapter 5: Reinforcement Learning Basics in `docusaurus/docs/05-rl-basics.md`
+- [ ] TASK-02-07 Write Chapter 6: Sim2Real Transfer in `docusaurus/docs/06-sim2real.md`
+- [ ] TASK-02-08 Write Chapter 7: Humanoid Locomotion in `docusaurus/docs/07-humanoid-locomotion.md`
+- [ ] TASK-02-09 Write Chapter 8: Manipulation and Grasping in `docusaurus/docs/08-manipulation.md`
+- [ ] TASK-02-10 Write Chapter 9: Human-Robot Interaction in `docusaurus/docs/09-hri.md`
+- [ ] TASK-02-11 Write Chapter 10: Future of Humanoids in `docusaurus/docs/10-future.md`
+- [ ] TASK-02-12 [P] Compile Glossary of terms from all chapters in `docusaurus/docs/glossary.md`
+- [ ] TASK-02-13 Validate all internal links and image references
 
 ## Phase 3: 005-Custom-CSS-Theme-System (Styling)
 

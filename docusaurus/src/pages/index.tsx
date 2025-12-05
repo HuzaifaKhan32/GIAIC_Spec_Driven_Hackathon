@@ -1,8 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import '../css/homepage.css';
 import '../css/responsive.css';
 
@@ -13,19 +11,16 @@ export default function Home(): JSX.Element {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Physical AI & Humanoid Robotics Textbook"
-      noNavbar
-      noFooter
     >
-      <Header />
       <main>
         {/* Hero Section */}
         <section className="hero-section">
           <div className="container">
-            <h1 className="hero-title">AI Robotics: The Definitive Guide</h1>
+            <h1 className="hero-title">Physical AI & Humanoid Robotics</h1>
             <p className="hero-subtitle">
               Build the future, one algorithm at a time. This guide is your key to unlocking the world of intelligent machines and autonomous systems.
             </p>
-            <a href="/docs/intro-physical-ai" className="hero-button">
+            <a href="/docs/intro/intro-physical-ai" className="hero-button">
               Explore the Future
             </a>
             <div 
@@ -73,7 +68,7 @@ export default function Home(): JSX.Element {
                 { title: 'Ch. 1: Foundations of AI', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9jqRPX1c0PxhRHDkSahiPpI6gE9J4bYhbmZsGmP9PI9QExQE1Pk57bZrgsL59trQWqT9pPT4m7HWmPrDPGcAkZxxp6iJkC0UR_CYJkrVjT5a2b6TUFETFrcqL6LlUryJDL4VmSbnkgPE3xHZU1mW2S-STaAnWYNb3z94BSVcLCosxMqFwIWkRBZt8VZzBwtuk3QPtFU5MqcOQr0b6tYk3Assyp9QIJgVP1NPDrf8KwYMAOm8i_Dq9WFQW7vZ5iXQ9HZTvh0GXgWhS' },
                 { title: 'Ch. 2: Python for Robotics', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCvVkGDbZIbWl8HeIAQRs-YWpWKeG6yu9QFK820SfUUvU2h2qywnx1iTCDaBqw2KeHfY2O47MirPSWcXk_sEYWNVsUvQVeDWyixG4drYTfaCHKY_7YginOUwKXWw-twIZetsZ7wChSkTVgbfccqPNOmsYQ2e1osNBmr6Z4uqBmdRjuZ956CbLL-CXKQZcGivCUk1WBtaiV4eHeQkjDPr1WxuvHytr2aY-VwUd1chOew3uZekqve4wp6hA7VDL9ZX3wlj-djHru3dSGe' },
                 { title: 'Ch. 3: ML Principles', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD1knWRHZPJaw93UCwWpMCDvWe_ZEcE-d6ee9q5X0KLh-xHdPP93gx1KApbAWJ6Y0iqqLzcWAryoLWCMWiF7-HDIEXw2oqPGw_20jLubC3kfNvGD8qsaO6h8Aysg_rF9AR7kJ5LkPqzRiqPAHHTqYcG5UWXz6GyedOXWUqEsIrYI3F6KoUWxY283rGbOGFL9lW5L8HFBWzKW6cD4ht5AwQX9-8tLL37RyYiqiQDpzr0AhkeNfvgUBLWi_y7aUgNQRBcz9LF2zb486YX' },
-                { title: 'Ch. 4: Deep Learning', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2zQvK5dGw0ejU3pWV0vvx8ABHs6xBnYj8li6L6Ep5dGPfBLOOPVdAiQk_FObbTDmvCiOS18TbF4cvFBFI2Z02x5BTjEG7Z-Y3XKQvbwazreEcZVyAJHRoBiUPRLd6w4dkEjeFEM0Se9tiFbpddaGn7cAAdqQfIv-DVDkpjTGKi_NcHWfk-1ck7GJtsChcJgrSwAc1fO3Q_-hrDO5Pp82gt4dTeqyHLqwoMc92niTKVaz-Xbn9YCVx3MzIkBmHvHEBffG5DfoPZ5eT' },
+                { title: 'Ch. 4: Deep Learning', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2zQvK5dGw0ejU3pWV0vvx8ABHs6xBnYj8li6L6Ep5dGPfBLOOPVdAiQk_FObbTDmvCiOS18TbF4cvFBFI2Z02x5BTjEG7Z-Y3XKQvbwazreEcZVyAJHRoBiUPRLd6w4dkEjeFEM0Se9tiFbpddaGn7cAAdqQfIv-DVDkpjTGKi_NcHWfk-ck7GJtsChcJgrSwAc1fO3Q_-hrDO5Pp82gt4dTeqyHLqwoMc92niTKVaz-Xbn9YCVx3MzIkBmHvHEBffG5DfoPZ5eT' },
               ].map((chapter, idx) => (
                 <div key={idx} className="chapter-card" style={{backgroundImage: `url("${chapter.img}")`}}>
                   <p className="chapter-title">{chapter.title}</p>
@@ -104,7 +99,6 @@ export default function Home(): JSX.Element {
           </div>
         </section>
       </main>
-      <Footer />
     </Layout>
   );
 }

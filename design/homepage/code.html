@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Homepage - AI Robotics Book</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6", // Electric Blue
+                        "secondary": "#8B5CF6", // Deep Purple
+                        "accent-cyan": "#06B6D4",
+                        "accent-pink": "#EC4899",
+                        "background-light": "#f5f5f8", // Using a standard light theme background
+                        "background-dark": "#0F172A", // Dark Navy
+                        "text-light-gray": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .glow-button {
+            box-shadow: 0 0 5px #3B82F6, 0 0 15px #3B82F6, 0 0 25px #3B82F6;
+        }
+        .gradient-border {
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            -webkit-background-clip: padding-box;
+            border-image: linear-gradient(45deg, #3B82F6, #8B5CF6) 1;
+        }
+        .subtle-grid {
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="font-display">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark dark:subtle-grid group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-6 sm:px-10 py-4">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill-opacity="0.7"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">AI Robotics</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-text-light-gray hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Chapters</a>
+<a class="text-text-light-gray hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Features</a>
+<a class="text-text-light-gray hover:text-white text-sm font-medium leading-normal transition-colors" href="#">About</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">Buy Now</span>
+</button>
+</div>
+</header>
+<!-- HeroSection -->
+<div class="py-20 sm:py-28 text-center @container">
+<div class="flex flex-col items-center gap-8 px-4">
+<div class="flex flex-col gap-4 text-center items-center">
+<h1 class="gradient-text text-5xl font-black leading-tight tracking-tighter @[480px]:text-6xl @[864px]:text-7xl">AI Robotics: The Definitive Guide</h1>
+<h2 class="text-text-light-gray text-base font-normal leading-normal @[480px]:text-lg max-w-2xl">Build the future, one algorithm at a time. This guide is your key to unlocking the world of intelligent machines and autonomous systems.</h2>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] transition-all duration-300 hover:glow-button">
+<span class="truncate">Explore the Future</span>
+</button>
+<div class="w-full max-w-4xl mt-12 bg-center bg-no-repeat aspect-video bg-cover rounded-xl" data-alt="3D isometric robot illustration or AI neural network visualization" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDpM4aQkC-pJakvWoUyJ6A6os7Ot6mMlofDYrpCDt7qk5THgnn8kdBejUvhjxmpPdtN6Z4mHf9P_eamwx-8WtLGdgPWh8ws5-pxr4ozChPmA2-QH__sOH_q-mZxOmyjStrfygLBz0I3HyuTxYEb9zFeAzvGKLlxGLaetlsD-1UuYoi-hmJtJVEqyyofz3ydr-p5lW0EAEMWgwpxQ3QHZeEDXLodiCsLjvWVZwHinhR-eDd5v3L54SFEZyUDvL0Dnp3_EWRe5zuRb1uc");'></div>
+</div>
+</div>
+<!-- FeatureSection -->
+<div class="flex flex-col gap-10 px-4 py-16 @container">
+<div class="flex flex-col gap-4 items-center text-center">
+<h1 class="text-white tracking-tight text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight max-w-2xl">What You'll Master</h1>
+<p class="text-text-light-gray text-base font-normal leading-normal max-w-3xl">Dive deep into the core concepts of artificial intelligence and robotics with hands-on examples and cutting-edge theory, from neural networks to autonomous navigation.</p>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 p-0">
+<div class="flex flex-1 gap-4 rounded-xl glassmorphism gradient-border p-6 flex-col">
+<div class="text-accent-cyan flex items-center justify-center size-12 rounded-lg bg-primary/20">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">Neural Networks</h2>
+<p class="text-text-light-gray/80 text-sm font-normal leading-normal">Understand and build complex neural networks from scratch.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl glassmorphism gradient-border p-6 flex-col">
+<div class="text-accent-cyan flex items-center justify-center size-12 rounded-lg bg-primary/20">
+<span class="material-symbols-outlined text-3xl">visibility</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">Machine Vision</h2>
+<p class="text-text-light-gray/80 text-sm font-normal leading-normal">Teach machines to see and interpret the world around them.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl glassmorphism gradient-border p-6 flex-col">
+<div class="text-accent-cyan flex items-center justify-center size-12 rounded-lg bg-primary/20">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-lg font-bold leading-tight">Autonomous Systems</h2>
+<p class="text-text-light-gray/80 text-sm font-normal leading-normal">Design robots that can navigate and operate independently.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- SectionHeader for Chapters -->
+<div class="text-center">
+<h2 class="text-white text-3xl sm:text-4xl font-bold leading-tight tracking-tight px-4 pb-3 pt-16">A Glimpse Inside</h2>
+</div>
+<!-- ImageGrid for Chapters -->
+<div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 p-4">
+<div class="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] group transition-transform duration-300 hover:-translate-y-2" data-alt="Abstract visualization for Foundations of AI" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9jqRPX1c0PxhRHDkSahiPpI6gE9J4bYhbmZsGmP9PI9QExQE1Pk57bZrgsL59trQWqT9pPT4m7HWmPrDPGcAkZxxp6iJkC0UR_CYJkrVjT5a2b6TUFETFrcqL6LlUryJDL4VmSbnkgPE3xHZU1mW2S-STaAnWYNb3z94BSVcLCosxMqFwIWkRBZt8VZzBwtuk3QPtFU5MqcOQr0b6tYk3Assyp9QIJgVP1NPDrf8KwYMAOm8i_Dq9WFQW7vZ5iXQ9HZTvh0GXgWhS");'>
+<p class="text-white text-base font-bold leading-tight">Ch. 1: Foundations of AI</p>
+</div>
+<div class="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] group transition-transform duration-300 hover:-translate-y-2" data-alt="A robotic arm and code" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvVkGDbZIbWl8HeIAQRs-YWpWKeG6yu9QFK820SfUUvU2h2qywnx1iTCDaBqw2KeHfY2O47MirPSWcXk_sEYWNVsUvQVeDWyixG4drYTfaCHKY_7YginOUwKXWw-twIZetsZ7wChSkTVgbfccqPNOmsYQ2e1osNBmr6Z4uqBmdRjuZ956CbLL-CXKQZcGivCUk1WBtaiV4eHeQkjDPr1WxuvHytr2aY-VwUd1chOew3uZekqve4wp6hA7VDL9ZX3wlj-djHru3dSGe");'>
+<p class="text-white text-base font-bold leading-tight">Ch. 2: Python for Robotics</p>
+</div>
+<div class="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] group transition-transform duration-300 hover:-translate-y-2" data-alt="Visualization of machine learning algorithms" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1knWRHZPJaw93UCwWpMCDvWe_ZEcE-d6ee9q5X0KLh-xHdPP93gx1KApbAWJ6Y0iqqLzcWAryoLWCMWiF7-HDIEXw2oqPGw_20jLubC3kfNvGD8qsaO6h8Aysg_rF9AR7kJ5LkPqzRiqPAHHTqYcG5UWXz6GyedOXWUqEsIrYI3F6KoUWxY283rGbOGFL9lW5L8HFBWzKW6cD4ht5AwQX9-8tLL37RyYiqiQDpzr0AhkeNfvgUBLWi_y7aUgNQRBcz9LF2zb486YX");'>
+<p class="text-white text-base font-bold leading-tight">Ch. 3: Machine Learning Principles</p>
+</div>
+<div class="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] group transition-transform duration-300 hover:-translate-y-2" data-alt="Futuristic data visualization with glowing lines" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2zQvK5dGw0ejU3pWV0vvx8ABHs6xBnYj8li6L6Ep5dGPfBLOOPVdAiQk_FObbTDmvCiOS18TbF4cvFBFI2Z02x5BTjEG7Z-Y3XKQvbwazreEcZVyAJHRoBiUPRLd6w4dkEjeFEM0Se9tiFbpddaGn7cAAdqQfIv-DVDkpjTGKi_NcHWfk-1ck7GJtsChcJgrSwAc1fO3Q_-hrDO5Pp82gt4dTeqyHLqwoMc92niTKVaz-Xbn9YCVx3MzIkBmHvHEBffG5DfoPZ5eT");'>
+<p class="text-white text-base font-bold leading-tight">Ch. 4: Deep Learning &amp; Vision</p>
+</div>
+<div class="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] group transition-transform duration-300 hover:-translate-y-2" data-alt="Digital brain with connected nodes" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBS4gofZbMC78FcdWTu0f3Sn_BUv1BpcXerbPJHnPSUkGlLKAtLJ5SlPci_SlUjg6LWSwWO1fbk2OEqTv9atfWCSgMq-0GoT6cU-l2igFMXJKizPgXgfePJPSns_X3WzsLMgNnOX0Z1-pll1Xg5wifD0ol6QjHtb4L_zsRTDIm2y6VjHjlwjPlHi7DDDWqXP5kRxhaYTYMPvvPpyJPhHf1E-viclXM1bA8BRAFJRFhee60SXUoR6tQckdmagy0SClmWYrt8jeapz9TQ");'>
+<p class="text-white text-base font-bold leading-tight">Ch. 5: Reinforcement Learning</p>
+</div>
+<div class="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] group transition-transform duration-300 hover:-translate-y-2" data-alt="Abstract network of interconnected points" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbPGyihTyI64onziUlFYg_VOY8YDR4IpG0dcXevI08DRpWr6ct2xRNpq8yeo8LU3yXKfJkvHH81u_46hyqtmcB16AlhimcDHQrdUmO63IhDg_EV69AuFWqdjTULiNsvop0LpjdVS7ryG4Au2HR-xkJ9Rjh6B63NEI4t_A15XCMhsUcrOOHK54Z6r1MJ0p7CtG3hJ0anQs1BsZ1ZxDJmC3UgqyKbzztqfpsf40cnfby1_jQxAw-SIHj385ttO-z4AcwmV735ItrI0YH");'>
+<p class="text-white text-base font-bold leading-tight">Ch. 6: Natural Language Processing</p>
+</div>
+<div class="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] group transition-transform duration-300 hover:-translate-y-2" data-alt="Close up on a complex robot joint" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAGvf78tGMpRHlh6EdjgtwzaRAAyb3FRk7za8Oyb_JE5bJfkB_nZAzrNXQevphCVVxa6llMbZX2FK5L4go9Gd0_87102VNCeo448z8_P20y58FiBxNGdlzA1cVaw2aizVubcvQ7bpWo_2J4gGbzkG1udiXvZhXl0Yjsn5GRlxrysRsd8TO-nh6g1GuP8jBxqqCSIxgGiUTd58fbH9UHFL8W6xWd8bz1TrUcpAq1dwMCHLpWp-pmwwTlqhc6P2FtFg4G8lSTMcjZwkL9");'>
+<p class="text-white text-base font-bold leading-tight">Ch. 7: Robot Kinematics</p>
+</div>
+<div class="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] group transition-transform duration-300 hover:-translate-y-2" data-alt="A humanoid robot looking towards a city skyline" style='background-image: linear-gradient(0deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLJrBNrZJe90gR0iojt-z5wu-ygN1gHQ2bj9-lb13xjW4843UOgm-QmdkJe2kQM0OXWVhqv5zU0pg_zNjZMtGnHW7YqLYCQCvKhbyb_zuGlHI_7pQEiWhvtL1ABdCknOO7b6G9R9TDEMCd_i6gAN7WWQu1-ZGWz9uXvkcuEEt_yHfEUSXdnFNAJr94KH4PQlnvuUzrU24a5bilDaQoG1EHd-2Z0Nz0O2nXxBTIS4flB3evtqww8IFWhw-71uloBBE_yOtwEEJnow1s");'>
+<p class="text-white text-base font-bold leading-tight">Ch. 8: The Future of AI</p>
+</div>
+</div>
+<!-- Final CTA Section -->
+<div class="py-20 sm:py-28">
+<div class="bg-gradient-to-br from-secondary to-primary rounded-xl p-8 sm:p-12 text-center flex flex-col items-center gap-8">
+<div class="flex flex-col gap-4">
+<h2 class="text-white text-4xl sm:text-5xl font-bold tracking-tight">Ready to Build the Future?</h2>
+<p class="text-white/80 text-base sm:text-lg max-w-2xl mx-auto">Join thousands of readers and start your journey into the fascinating world of AI and Robotics today. Your expertise begins here.</p>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-8 text-white w-full max-w-2xl">
+<div class="text-center">
+<p class="text-4xl font-bold">10,000+</p>
+<p class="text-sm text-white/70">Readers</p>
+</div>
+<div class="text-center">
+<p class="text-4xl font-bold">5,000+</p>
+<p class="text-sm text-white/70">Code Snippets</p>
+</div>
+<div class="text-center">
+<p class="text-4xl font-bold">1,200+</p>
+<p class="text-sm text-white/70">Illustrations</p>
+</div>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">Start Learning Now</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

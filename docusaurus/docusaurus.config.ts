@@ -56,7 +56,7 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
-      disableSwitch: true, // We will implement custom toggle
+      disableSwitch: false,
     },
     navbar: {
       title: 'Physical AI',
@@ -66,8 +66,8 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          type: 'doc',
+          docId: 'intro/intro-physical-ai',
           position: 'left',
           label: 'Chapters',
         },
@@ -91,7 +91,7 @@ const config: Config = {
           items: [
             {
               label: 'Chapters',
-              to: '/docs/intro',
+              to: '/docs/intro/intro-physical-ai',
             },
           ],
         },
