@@ -1,0 +1,33 @@
+paths:
+  /health:
+    get:
+      summary: Verify operational status of all integrated services
+      operationId: get_health_status
+      responses:
+        '200':
+          description: All services are operational.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [ "ok", "degraded", "error" ]
+                  components:
+                    type: object
+                    properties:
+                      gemini_llm:
+                        type: string
+                        enum: [ "ok", "error" ]
+                      gemini_embeddings:
+                        type: string
+                        enum: [ "ok", "error" ]
+                      qdrant_db:
+                        type: string
+                        enum: [ "ok", "error" ]
+                      fastapi_app:
+                        type: string
+                        enum: [ "ok", "error" ]
+        '500':
+          description: One or more services are not operational.

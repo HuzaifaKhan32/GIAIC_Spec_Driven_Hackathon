@@ -1,0 +1,33 @@
+paths:
+  /api/learning/progress:
+    get:
+      summary: Retrieve a user's learning progress
+      operationId: get_learning_progress
+      security:
+        - CookieAuth: [] # Requires authentication via session cookie
+      responses:
+        '200':
+          description: User learning progress retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                  chaptersCompleted:
+                    type: array
+                    items:
+                      type: string
+                  timeSpentMinutes:
+                    type: integer
+        '401':
+          description: Unauthorized access.
+        '500':
+          description: Internal server error.
+components:
+  securitySchemes:
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: next-auth.session-token # Example name, Better-Auth might use a different name

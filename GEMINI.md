@@ -208,3 +208,11 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Recent Changes
+- 001-docusaurus-ai-textbook: Added TypeScript (for Docusaurus components, ensuring type safety), JavaScript (for Docusaurus theme setup and browser APIs), CSS (for custom styling and theming). + Docusaurus (framework for static site generation and content management), React (for UI components, including custom header, footer, theme toggle), `localStorage` API (browser native for theme preference persistence).
+- 001-docusaurus-ai-textbook: Added TypeScript (for Docusaurus components, ensuring type safety), JavaScript (for Docusaurus theme setup and browser APIs), CSS (for custom styling and theming). + Docusaurus (framework for static site generation and content management), React (for UI components, including custom header, footer, theme toggle), `localStorage` API (browser native for theme preference persistence).
+- 001-docusaurus-ai-textbook: Added TypeScript (for Docusaurus components, ensuring type safety), JavaScript (for Docusaurus theme setup and browser APIs), CSS (for custom styling and theming). + Docusaurus (framework for static site generation and content management), React (for UI components, including custom header, footer, theme toggle), `localStorage` API (browser native for theme preference persistence).
+
+## Active Technologies
+- `localStorage` (for user's explicit theme preference persistence). This is client-side only for this feature. (001-docusaurus-ai-textbook)

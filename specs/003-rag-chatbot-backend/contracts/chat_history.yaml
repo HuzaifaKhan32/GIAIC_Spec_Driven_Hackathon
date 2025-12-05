@@ -1,0 +1,47 @@
+paths:
+  /chat/history:
+    get:
+      summary: Retrieve conversation history for a given session
+      operationId: get_chat_history
+      parameters:
+        - name: session_id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the chat session.
+      responses:
+        '200':
+          description: Conversation history retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  session_id:
+                    type: string
+                  history:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        query:
+                          type: string
+                        response:
+                          type: string
+                        sources:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              chapter:
+                                type: string
+                              section:
+                                type: string
+                        timestamp:
+                          type: string
+                          format: date-time
+        '404':
+          description: Session ID not found.
+        '500':
+          description: Internal server error.
