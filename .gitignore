@@ -1,1 +1,20 @@
+# Node.js/JavaScript/TypeScript
+node_modules/
+dist/
+build/
+*.log
+.env*
+.docusaurus/
+.cache-loader/
+
+# Universal
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+
+# Gemini CLI
+.gemini/settings.json
 .gemini/tmp/
