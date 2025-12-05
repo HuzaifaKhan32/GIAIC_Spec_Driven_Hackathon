@@ -14,3 +14,7 @@ Thumbs.db
 *.swp
 .vscode/
 .idea/
+
+# Gemini CLI
+.gemini/settings.json
+.gemini/tmp/
