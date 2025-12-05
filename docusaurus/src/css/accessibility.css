@@ -1,0 +1,21 @@
+/* Custom CSS for Accessibility Enhancements */
+
+/* Focus states */
+:focus:not(:focus-visible) {
+  outline: none; /* Remove outline for mouse users */
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary); /* Custom outline for keyboard users */
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,244 @@
+@import './chapters.css';
+@import './chatbot.css';
+@import './accessibility.css';
+
+/* Custom CSS for Physical AI & Humanoid Robotics Textbook */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #3B82F6; /* Electric Blue */
+  --color-secondary: #8B5CF6; /* Deep Purple */
+  --color-accent-cyan: #06B6D4;
+  --color-accent-pink: #EC4899;
+  
+  /* Light Mode Colors */
+  --color-background-light: #f5f5f8;
+  --color-text-light: #1e293b; /* Darker text for light mode */
+  
+  /* Docusaurus Infima Overrides - Light Mode */
+  --ifm-color-primary: var(--color-primary);
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe;
+  
+  --ifm-background-color: var(--color-background-light);
+  --ifm-font-color-base: var(--color-text-light);
+  
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-footer-background-color: #0f172a;
+}
+
+[data-theme='dark'] {
+  /* Dark Mode Colors */
+  --color-background-dark: #0F172A; /* Dark Navy */
+  --color-text-dark-gray: #E2E8F0;
+  
+  /* Docusaurus Infima Overrides - Dark Mode */
+  --ifm-color-primary: var(--color-primary);
+  --ifm-background-color: var(--color-background-dark);
+  --ifm-font-color-base: var(--color-text-dark-gray);
+  
+  --ifm-navbar-background-color: rgba(15, 23, 42, 0.9);
+  --ifm-footer-background-color: #020617; /* Darker shade for footer */
+}
+
+/* Global Typography */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+html {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Utility Classes matching Design */
+.gradient-text {
+  background: linear-gradient(90deg, #3B82F6, #8B5CF6, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glow-button {
+  box-shadow: 0 0 5px #3B82F6, 0 0 15px #3B82F6, 0 0 25px #3B82F6;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 0.75rem; /* rounded-xl */
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem; 
+  padding: 2px; /* border width */
+  background: linear-gradient(45deg, #3B82F6, #8B5CF6); 
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Navbar Styling */
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem; /* px-6 sm:px-10 py-4 */
+  backdrop-filter: blur(10px);
+  /* Ensure text color matches design (text-light-gray on dark) */
+  color: var(--ifm-navbar-color);
+}
+
+.navbar__title,
+.navbar__link {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ifm-navbar-color);
+}
+
+.navbar__title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.25; /* leading-tight */
+  letter-spacing: -0.015em; /* tracking-[-0.015em] */
+}
+
+.navbar__item.navbar__link {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  line-height: normal; /* leading-normal */
+  transition: color 0.2s; /* transition-colors */
+  opacity: 0.8; /* text-text-light-gray opacity on dark */
+}
+
+.navbar__item.navbar__link:hover {
+  color: var(--color-primary); /* hover:text-primary */
+  opacity: 1;
+}
+
+/* Footer Styling */
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.footer__title {
+  color: #fff; /* White */
+  font-size: 1.5rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 0.5rem;
+}
+
+.footer__link-item {
+  color: #94a3b8; /* text-slate-400 */
+  font-size: 0.875rem; /* text-sm */
+  transition: color 0.2s;
+}
+
+.footer__link-item:hover {
+  color: var(--color-primary);
+}
+
+.footer__copyright {
+  color: #64748b; /* text-slate-500 */
+  font-size: 0.875rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+/* Adjust general colors based on theme */
+[data-theme='light'] {
+  --ifm-navbar-color: var(--ifm-font-color-base); /* Dark text on light navbar */
+}
+
+[data-theme='dark'] {
+  --ifm-navbar-color: var(--color-text-dark-gray); /* Light text on dark navbar */
+}
+
+/* Navbar Styling */
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem; /* px-6 sm:px-10 py-4 */
+  backdrop-filter: blur(10px);
+  /* Ensure text color matches design (text-light-gray on dark) */
+  color: var(--ifm-navbar-color);
+}
+
+.navbar__title,
+.navbar__link {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ifm-navbar-color);
+}
+
+.navbar__title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.25; /* leading-tight */
+  letter-spacing: -0.015em; /* tracking-[-0.015em] */
+}
+
+.navbar__item.navbar__link {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  line-height: normal; /* leading-normal */
+  transition: color 0.2s; /* transition-colors */
+  opacity: 0.8; /* text-text-light-gray opacity on dark */
+}
+
+.navbar__item.navbar__link:hover {
+  color: var(--color-primary); /* hover:text-primary */
+  opacity: 1;
+}
+
+/* Footer Styling */
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.footer__title {
+  color: #fff; /* White */
+  font-size: 1.5rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 0.5rem;
+}
+
+.footer__link-item {
+  color: #94a3b8; /* text-slate-400 */
+  font-size: 0.875rem; /* text-sm */
+  transition: color 0.2s;
+}
+
+.footer__link-item:hover {
+  color: var(--color-primary);
+}
+
+.footer__copyright {
+  color: #64748b; /* text-slate-500 */
+  font-size: 0.875rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+/* Adjust general colors based on theme */
+[data-theme='light'] {
+  --ifm-navbar-color: var(--ifm-font-color-base); /* Dark text on light navbar */
+}
+
+[data-theme='dark'] {
+  --ifm-navbar-color: var(--color-text-dark-gray); /* Light text on dark navbar */
+}

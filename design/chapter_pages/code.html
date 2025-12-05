@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chapter Pages - AI Robotics Book</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c3cf6",
+                        "background-light": "#f5f5f8",
+                        "background-dark": "#1E293B",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-dark text-slate-200 font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top Navigation & Progress Bar -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md border-b border-slate-700/50">
+<!-- Progress Bar -->
+<div class="w-full h-1 bg-slate-700">
+<div class="h-1 bg-gradient-to-r from-[#A78BFA] to-[#22D3EE]" style="width: 25%;"></div>
+</div>
+<div class="flex items-center justify-between px-6 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-white">
+<span class="material-symbols-outlined text-3xl">neurology</span>
+<h2 class="text-white text-lg font-bold">AI Robotics</h2>
+</div>
+<!-- Breadcrumbs -->
+<div class="hidden md:flex items-center gap-2">
+<a class="text-slate-400 text-sm font-medium" href="#">Home</a>
+<span class="text-slate-400 text-sm">/</span>
+<a class="text-slate-400 text-sm font-medium" href="#">Book</a>
+<span class="text-slate-400 text-sm">/</span>
+<span class="text-white text-sm font-medium">Chapter 1</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center p-2 rounded-full text-slate-300 hover:bg-slate-700/50 hover:text-white transition-colors">
+<span class="material-symbols-outlined" style="text-shadow: 0 0 8px #22D3EE;">search</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDjkKT-KWKsrgOaz1mQaAJiTkjjymb5fbZuiQZECZ3vz16kw3as36eocCJz6ovI8DVA2YRzkHAzTvYQIlnSNA-Imrw6R-0HrgVR2SgGMsobtV8qpqNlrUKmbk8mpe0M89pVtleRUGc0_6Uzht0okYV-TZhMTgM5cqgWqdvUsR2TB1PNok5pbSErJ9pGD2t9FSXq1nbE_dY2-di6duKey9L_erZfRNRlZQbOFHMkBIueW1TsTnFEfGW-HGkSZOmzs00Hn21lBYK1W9G7");'></div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 mx-auto w-full max-w-screen-2xl">
+<!-- Left Sidebar -->
+<aside class="sticky top-[73px] h-[calc(100vh-73px)] w-72 flex-shrink-0 p-6 hidden lg:block">
+<nav class="flex flex-col gap-2">
+<p class="text-sm font-semibold text-slate-400 px-3 pb-2 border-b border-slate-700">Chapters</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white font-medium bg-gradient-to-r from-purple-500/20 to-cyan-500/20" href="#">
+<span class="material-symbols-outlined text-cyan-400">auto_awesome</span>
+<span>1. Introduction to AI</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700/50 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-purple-400">hub</span>
+<span>2. Neural Networks</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700/50 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">visibility</span>
+<span>3. Computer Vision</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700/50 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">translate</span>
+<span>4. NLP</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700/50 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-green-400" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span>5. Reinforcement Learning</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700/50 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-green-400" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span>6. Advanced Topics</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-[720px] mx-auto p-6 md:p-10">
+<div class="flex flex-col gap-8">
+<!-- Page Heading -->
+<div class="flex flex-col gap-3 border-b border-slate-700 pb-6">
+<h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#A78BFA] to-[#22D3EE] text-transparent bg-clip-text">Chapter 1: An Introduction to Artificial Intelligence</h1>
+<p class="text-slate-400 text-lg">Exploring the fundamentals of modern robotics and the dawn of artificial intelligence.</p>
+</div>
+<!-- Article Content -->
+<article class="prose prose-invert max-w-none prose-p:text-slate-300 prose-p:leading-relaxed prose-headings:font-bold prose-a:text-[#22D3EE] hover:prose-a:underline">
+<p>Welcome to the beginning of your journey into the fascinating world of AI and robotics. This chapter lays the groundwork, defining what artificial intelligence truly is and how it intersects with the physical world through robotics. We'll explore the historical context that led to the current AI boom and introduce the core components that make intelligent machines possible.</p>
+<h2 class="text-white">1.1 What is Robotics?</h2>
+<p>At its core, a robot is an autonomous machine capable of sensing its environment, carrying out computations to make decisions, and performing actions in the real world. Robotics is the interdisciplinary branch of engineering and science that includes mechanical engineering, electrical engineering, computer science, and others. It deals with the design, construction, operation, and use of robots, as well as computer systems for their control, sensory feedback, and information processing.</p>
+<!-- Callout Box -->
+<div class="flex items-start gap-4 p-4 my-8 rounded-lg border-l-4 border-[#14B8A6] bg-slate-800/50">
+<span class="material-symbols-outlined text-2xl text-[#14B8A6]" style="text-shadow: 0 0 10px #14B8A6;">lightbulb</span>
+<div>
+<h4 class="font-semibold text-white mt-0 mb-1">Key Definition</h4>
+<p class="text-slate-300 text-sm mt-0 leading-normal"><strong>Autonomy</strong> is the ability of a robot to perform intended tasks based on its current state and sensing, without human control.</p>
+</div>
+</div>
+<h2 class="text-white">1.2 Core Components</h2>
+<p>Every robot, from a simple automated vacuum to a sophisticated humanoid, is built upon a set of core components. These typically include sensors to perceive the environment, actuators to produce motion, a power source, and a controller—the "brain" of the robot—which processes information and directs the actuators.</p>
+<!-- Image/Diagram -->
+<figure class="my-8">
+<div class="bg-slate-800/50 rounded-xl p-4 shadow-lg shadow-black/20">
+<img alt="Diagram showing the core components of a robot: sensors, controller, and actuators." class="w-full h-auto rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBvhfVi1T0D51PY_9KrYMLug82xrmh-xNfaG1ICmqH2_ykCxWJ0d8h2V854fvWhlmACLRBpgnFuboR_C0QSRriVR_qR4_7yiLiXA133SApG04PTiLqv_hUCEN3bTfLrPfDrvm8mRkc8EeKBPA2bxvIgRiBHD0MS5mnROQHr4MJDiRaz_mcq3YbNZ_FG0qFBVsjqAeM0bCHV8TmrOYt46CLXId191fvJpGCT4JtjeiovzMQz38sQgI2nsOp3NEtQYV3u6Tj3Y8IJMQS"/>
+</div>
+<figcaption class="text-center text-sm text-slate-400 mt-2">Fig 1.1: A simplified architecture of a robotic system.</figcaption>
+</figure>
+<h2 class="text-white">1.3 Historical Context</h2>
+<p>The dream of automated machines is ancient, but the modern field of robotics began to take shape in the 20th century. The term "robot" was coined by Czech writer Karel Čapek in his 1920 play R.U.R. (Rossum's Universal Robots). However, it was the advent of digital computers that truly unlocked the potential for complex, programmable machines.</p>
+<!-- Code Block -->
+<div class="relative my-8 group">
+<button class="absolute top-3 right-3 text-slate-400 text-xs font-semibold py-1 px-2.5 rounded bg-slate-700 hover:bg-slate-600 opacity-0 group-hover:opacity-100 transition-opacity">Copy</button>
+<pre class="bg-[#0F172A] rounded-xl p-4 shadow-lg" style="box-shadow: 0 0 20px rgba(167, 139, 250, 0.15);"><code class="language-python"><span style="color: #c678dd;">class</span> <span style="color: #61afef;">SimpleRobot</span>:
+    <span style="color: #c678dd;">def</span> <span style="color: #e5c07b;">__init__</span>(<span style="color: #e06c75;">self</span>, name):
+        <span style="color: #e06c75;">self</span>.name = name
+        <span style="color: #e06c75;">self</span>.position = (<span style="color: #d19a66;">0</span>, <span style="color: #d19a66;">0</span>)
+
+    <span style="color: #c678dd;">def</span> <span style="color: #61afef;">move</span>(<span style="color: #e06c75;">self</span>, direction):
+        <span style="color: #56b6c2;">""" A simple function to simulate movement. """</span>
+        <span style="color: #c678dd;">if</span> direction == <span style="color: #98c379;">'north'</span>:
+            <span style="color: #e06c75;">self</span>.position = (<span style="color: #e06c75;">self</span>.position[<span style="color: #d19a66;">0</span>], <span style="color: #e06c75;">self</span>.position[<span style="color: #d19a66;">1</span>] + <span style="color: #d19a66;">1</span>)
+        <span style="color: #abb2bf;">print</span>(<span style="color: #98c379;">f"{self.name} moved to {self.position}"</span>)
+
+<span style="color: #abb2bf;">walle = SimpleRobot(</span><span style="color: #98c379;">"Wall-E"</span><span style="color: #abb2bf;">)</span>
+<span style="color: #abb2bf;">walle.move(</span><span style="color: #98c379;">'north'</span><span style="color: #abb2bf;">)</span></code></pre>
+</div>
+</article>
+</div>
+</main>
+<!-- Right Sidebar (Table of Contents) -->
+<aside class="sticky top-[73px] h-[calc(100vh-73px)] w-60 flex-shrink-0 p-6 hidden xl:block">
+<div class="flex flex-col gap-4">
+<h3 class="text-sm font-semibold text-slate-400">On this page</h3>
+<nav>
+<ul class="space-y-3">
+<li>
+<a class="flex items-center gap-2 text-sm font-medium text-white group" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#A78BFA] to-[#22D3EE] shadow-[0_0_8px_#A78BFA]"></span>
+<span>What is Robotics?</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2 text-sm text-slate-400 hover:text-white group" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyan-400 transition-colors"></span>
+<span>Core Components</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2 text-sm text-slate-400 hover:text-white group" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyan-400 transition-colors"></span>
+<span>Historical Context</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</div>
+</div>
+</body></html>
