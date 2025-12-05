@@ -1,0 +1,37 @@
+paths:
+  /documents/process:
+    post:
+      summary: Process book chapters into the Qdrant vector database
+      operationId: process_documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - chapter_ids
+              properties:
+                chapter_ids:
+                  type: array
+                  items:
+                    type: string
+                  description: List of chapter IDs to be processed. If empty, all unprocessed chapters are processed.
+      responses:
+        '200':
+          description: Document processing initiated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  processed_chapters:
+                    type: array
+                    items:
+                      type: string
+        '400':
+          description: Invalid input (e.g., chapter_ids not found).
+        '500':
+          description: Internal server error during processing.

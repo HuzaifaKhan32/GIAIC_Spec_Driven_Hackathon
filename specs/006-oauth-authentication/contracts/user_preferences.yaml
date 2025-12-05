@@ -1,0 +1,46 @@
+paths:
+  /api/user/preferences:
+    put:
+      summary: Update a user's preferences
+      operationId: update_user_preferences
+      security:
+        - CookieAuth: [] # Requires authentication via session cookie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                theme:
+                  type: string
+                  enum: [ "dark", "light", "system" ]
+                  nullable: true
+                notificationsEnabled:
+                  type: boolean
+                  nullable: true
+                language:
+                  type: string
+                  nullable: true
+      responses:
+        '200':
+          description: User preferences updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '400':
+          description: Invalid input.
+        '401':
+          description: Unauthorized access.
+        '500':
+          description: Internal server error.
+components:
+  securitySchemes:
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: next-auth.session-token # Example name, Better-Auth might use a different name

@@ -1,0 +1,44 @@
+paths:
+  /api/learning/progress/update:
+    post:
+      summary: Update a user's learning progress
+      operationId: update_learning_progress
+      security:
+        - CookieAuth: [] # Requires authentication via session cookie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chapterId:
+                  type: string
+                  description: The ID of the chapter to mark as completed.
+                timeSpentMinutes:
+                  type: integer
+                  description: Additional time spent in minutes.
+              required:
+                - chapterId # Assuming at least one field is required for update
+      responses:
+        '200':
+          description: Learning progress updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '400':
+          description: Invalid input.
+        '401':
+          description: Unauthorized access.
+        '500':
+          description: Internal server error.
+components:
+  securitySchemes:
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: next-auth.session-token # Example name, Better-Auth might use a different name

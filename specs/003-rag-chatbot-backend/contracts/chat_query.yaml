@@ -1,0 +1,55 @@
+paths:
+  /chat/query:
+    post:
+      summary: Submit a user query to the RAG chatbot
+      operationId: chat_query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+                - session_id
+              properties:
+                query:
+                  type: string
+                  description: The user's question.
+                session_id:
+                  type: string
+                  description: Unique identifier for the chat session.
+                selected_text:
+                  type: string
+                  nullable: true
+                  description: Optional selected text from the document for contextual queries.
+      responses:
+        '200':
+          description: Successful response from the chatbot.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: The chatbot's generated answer.
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        chapter:
+                          type: string
+                          description: Chapter where the information was found.
+                        section:
+                          type: string
+                          description: Section within the chapter.
+                  confidence:
+                    type: number
+                    format: float
+                    description: Confidence score of the answer.
+        '400':
+          description: Invalid input or missing parameters.
+        '500':
+          description: Internal server error.
