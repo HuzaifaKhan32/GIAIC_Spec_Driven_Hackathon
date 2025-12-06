@@ -761,7 +761,7 @@ GOOGLE_CLIENT_SECRET=...
 
 ### 11.1 Documentation
 - Docusaurus: https://docusaurus.io/
-- OpenAI Agents SDK: https://platform.openai.com/docs/agents
+- OpenAI Agents SDK: https://openai.github.io/openai-agents-python/
 - Qdrant: https://qdrant.tech/documentation/
 - FastAPI: https://fastapi.tiangolo.com/
 

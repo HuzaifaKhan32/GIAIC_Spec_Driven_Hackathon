@@ -1,33 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
-function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T) => void] {
+function useLocalStorage<T>(key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {
   // State to store our value
-  // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
-      // Get from local storage by key
       const item = typeof window !== 'undefined' ? window.localStorage.getItem(key) : null;
-      // Parse stored json or if none return initialValue
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      // If error also return initialValue
-      console.warn(`Error reading localStorage key “${key}”:`, error);
+      console.warn(`Error reading localStorage key "${key}":`, error);
       return initialValue;
     }
   });
 
-  // useEffect to update local storage when the state changes
+  const setValue: Dispatch<SetStateAction<T>> = (value) => {
+    // By passing the `value` directly to `setStoredValue`, we leverage React's built-in
+    // handling of functional updates. If `value` is a function, React will call it
+    // with the latest state. This is the correct way to handle this.
+    setStoredValue(value);
+  };
+
+  // This `useEffect` hook will run whenever `storedValue` changes.
+  // It serializes the new state and saves it to localStorage.
   useEffect(() => {
     try {
       if (typeof window !== 'undefined') {
         window.localStorage.setItem(key, JSON.stringify(storedValue));
       }
     } catch (error) {
-      console.warn(`Error writing to localStorage key “${key}”:`, error);
+      console.warn(`Error writing to localStorage key "${key}":`, error);
     }
   }, [key, storedValue]);
 
-  return [storedValue, setStoredValue];
+  return [storedValue, setValue];
 }
 
 export default useLocalStorage;

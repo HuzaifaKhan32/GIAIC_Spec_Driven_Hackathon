@@ -1,110 +1,142 @@
 import os
-import time
-import hashlib
-import google.generativeai as genai
 from dotenv import load_dotenv
+from openai import AsyncOpenAI
+from agents import Agent, OpenAIChatCompletionsModel, set_tracing_disabled
 
+# Load environment variables from .env file
 load_dotenv()
 
+# Disable agent tracing if not needed
+set_tracing_disabled(True)
+
+# Fetch Gemini configuration from environment variables
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
-    raise ValueError("GEMINI_API_KEY not found in environment variables")
+    # In the previous implementation, this was GOOGLE_API_KEY.
+    # The constitution specifies GEMINI_API_KEY, so we check for both for compatibility.
+    GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-genai.configure(api_key=GEMINI_API_KEY)
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY or GOOGLE_API_KEY not found in environment variables.")
+
+# The OpenAI-compatible endpoint for Gemini
+GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/"
+GEMINI_MODEL_NAME = "models/gemini-2.5-flash" # Use the specific model name for the API
+EMBEDDING_MODEL_NAME = "models/text-embedding-004"
 
 
-class GeminiClient:
-    """Client for interacting with Google Gemini API."""
+class GeminiAgentClient:
+    """
+    A client for interacting with a Google Gemini model via an OpenAI-compatible interface.
+    This client uses the OpenAI Agent SDK.
+    """
     
     def __init__(self):
-        """Initialize Gemini client with API key."""
-        self.api_key = os.getenv("GEMINI_API_KEY")
-        if not self.api_key:
-            raise ValueError("GEMINI_API_KEY not found in environment variables")
+        """Initializes the asynchronous OpenAI client to point to Gemini's endpoint."""
+        print("[INFO] Initializing GeminiAgentClient...")
         
-        genai.configure(api_key=self.api_key)
-        self.model_name = "gemini-2.5-flash"
-        self.embedding_model = "models/embedding-001"
-    
-    def get_embedding(self, text: str) -> list:
+        self.client = AsyncOpenAI(
+            api_key=GEMINI_API_KEY,
+            base_url=GEMINI_BASE_URL,
+        )
+        
+        self.model = OpenAIChatCompletionsModel(
+            model=GEMINI_MODEL_NAME,
+            openai_client=self.client
+        )
+        
+        print(f"[INFO] GeminiAgentClient initialized with model: {GEMINI_MODEL_NAME}")
+
+    def get_rag_agent(self, instructions: str = "You are a helpful AI assistant.") -> Agent:
         """
-        Generate fast embeddings using deterministic hashing (instant, no API calls).
+        Creates and returns a configured agent for RAG.
         
         Args:
-            text: Text to embed
+            instructions: The system prompt/instructions for the agent.
+            
+        Returns:
+            A configured Agent instance.
+        """
+        return Agent(
+            name="RAGAssistant",
+            instructions=instructions,
+            model=self.model
+        )
+
+    async def get_embedding(self, text: str) -> list[float]:
+        """
+        Generates an embedding for the given text using the Gemini embedding model
+        through the OpenAI-compatible endpoint.
+        
+        Args:
+            text: The text to embed.
         
         Returns:
-            384-dimensional embedding vector
+            A list of floats representing the embedding vector.
         """
+        if not text or not text.strip():
+            print("[WARN] Attempted to embed empty or whitespace-only text.")
+            return []
+            
         try:
-            print(f"[DEBUG] Generating embedding for: {text[:50]}...")
+            print(f"[DEBUG] Generating embedding for text: '{text[:50]}...'")
             
-            # Deterministic hash-based embedding
-            hash_obj = hashlib.sha256(text.encode())
-            hash_bytes = hash_obj.digest()
+            response = await self.client.embeddings.create(
+                model=EMBEDDING_MODEL_NAME,
+                input=[text]
+            )
             
-            embedding = []
-            for i in range(384):
-                byte_val = hash_bytes[i % len(hash_bytes)]
-                normalized = (byte_val / 127.5) - 1.0
-                embedding.append(normalized)
-            
+            embedding = response.data[0].embedding
             print(f"[DEBUG] Embedding generated successfully. Size: {len(embedding)}")
             return embedding
-        
+            
         except Exception as e:
             print(f"[ERROR] Failed to generate embedding: {e}")
+            import traceback
+            traceback.print_exc()
             return None
-    
-    def generate_content(self, prompt: str) -> str:
-        """
-        Generate content using Gemini model.
-        
-        Args:
-            prompt: The prompt to send to Gemini
-        
-        Returns:
-            Generated text response from Gemini
-        """
-        try:
-            print(f"[DEBUG] Generating content with prompt length: {len(prompt)}")
-            
-            model = genai.GenerativeModel(self.model_name)
-            response = model.generate_content(prompt)
-            
-            content = response.text
-            print(f"[DEBUG] Content generated successfully. Length: {len(content)}")
-            
-            time.sleep(0.5)
-            
-            return content
-        
-        except Exception as e:
-            print(f"[ERROR] Failed to generate content: {e}")
-            return f"Error generating response: {str(e)}"
 
-
-if __name__ == "__main__":
+# Example usage for testing the client
+async def main():
+    """Main function to test the GeminiAgentClient."""
     try:
-        gemini_client = GeminiClient()
-        
-        print("\n--- Testing Embedding ---")
-        embedding = gemini_client.get_embedding("What is Physical AI?")
+        print("\n--- Testing GeminiAgentClient ---")
+        client = GeminiAgentClient()
+
+        # --- Test 1: Get Embedding ---
+        print("\n--- Testing Embedding Generation ---")
+        query = "What is Physical AI?"
+        embedding = await client.get_embedding(query)
         if embedding:
-            print(f"✓ Embedding successful. Size: {len(embedding)}\n")
+            print(f"✓ Embedding for '{query}' successful. Size: {len(embedding)}\n")
         else:
-            print("✗ Embedding failed\n")
+            print(f"✗ Embedding for '{query}' failed.\n")
+
+        # --- Test 2: Run Agent ---
+        print("--- Testing Agent Execution ---")
+        rag_agent = client.get_rag_agent(
+            instructions="You are an expert on robotics. Answer the user's question."
+        )
         
-        print("--- Testing Content Generation ---")
-        test_prompt = "What is the capital of France?"
-        print(f"Sending prompt to Gemini: {test_prompt}")
-        response = gemini_client.generate_content(test_prompt)
-        if response:
-            print(f"✓ Gemini's response: {response}\n")
+        # The Runner is imported from the agents library and is used to execute the agent
+        from agents import Runner
+        
+        user_prompt = "What are the main components of a humanoid robot?"
+        print(f"Running agent with prompt: '{user_prompt}'")
+        
+        # The Runner.run() method is asynchronous
+        result = await Runner.run(rag_agent, input=user_prompt)
+        
+        if result:
+            print(f"✓ Agent executed successfully. Response: {result}\n")
         else:
-            print("✗ Content generation failed\n")
-    
+            print("✗ Agent execution failed.\n")
+
     except Exception as e:
-        print(f"Error during testing: {e}")
+        print(f"[FATAL] An error occurred during client testing: {e}")
         import traceback
         traceback.print_exc()
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())

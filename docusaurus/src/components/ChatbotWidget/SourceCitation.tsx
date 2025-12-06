@@ -2,10 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './ChatbotWidget.module.css'; // Assuming styles
 
-interface Citation {
+export interface Citation {
   title: string;
   chapter_path: string; // e.g., "intro/intro-physical-ai"
-  score: float;
+  score: number;
 }
 
 interface SourceCitationProps {

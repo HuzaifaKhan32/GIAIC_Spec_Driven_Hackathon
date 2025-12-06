@@ -13,7 +13,7 @@ interface ChatAPIResponse {
 
 export const sendMessageToRAG = async (query: string, chatHistory: Array<{ user: string; ai: string }> = [], backendUrl: string): Promise<ChatAPIResponse> => {
   try {
-    const response = await fetch(`${backendUrl}/chat`, {
+    const response = await fetch(`${backendUrl}/api/chat/query`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

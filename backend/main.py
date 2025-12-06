@@ -86,7 +86,7 @@ async def chat_with_rag_endpoint(request: ChatRequest):
         history_dicts = [{"user": msg.user, "ai": msg.ai} for msg in request.chat_history]
         session_id = request.session_id or "default"
         
-        response_data = rag_engine.chat_with_rag(request.query, history_dicts)
+        response_data = await rag_engine.chat_with_rag(request.query, history_dicts)
         print(f"[DEBUG] Got response: {response_data}")
         
         return ChatResponse(

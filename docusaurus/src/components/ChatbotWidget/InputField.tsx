@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
+import { FaPaperPlane } from 'react-icons/fa';
 import styles from './ChatbotWidget.module.css';
 
 interface InputFieldProps {
@@ -34,7 +34,7 @@ const InputField: React.FC<InputFieldProps> = ({ onSendMessage, isLoading }) => 
           disabled={isLoading}
         />
         <button type="submit" className={styles.chatbotSendButton} disabled={isLoading}>
-          <span className="material-symbols-outlined">send</span>
+          <FaPaperPlane />
         </button>
       </div>
     </form>
