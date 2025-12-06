@@ -99,7 +99,7 @@ export default function Home(): JSX.Element {
             <button className="cta-button">Start Learning Now</button>
           </div>
         </section>
-        <ChatbotWidget /> {/* Render ChatbotWidget at the end of main */}
+        <ChatbotWidget backendUrl={siteConfig.customFields.backendUrl as string} /> {/* Render ChatbotWidget at the end of main */}
       </main>
     </Layout>
   );

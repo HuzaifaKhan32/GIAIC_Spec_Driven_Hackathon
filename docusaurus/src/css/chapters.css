@@ -6,7 +6,7 @@
 }
 
 .markdown p {
-  color: #CBD5E1; /* prose-p:text-slate-300 */
+  color: var(--ifm-font-color-base); /* prose-p:text-slate-300 */
   line-height: 1.625; /* prose-p:leading-relaxed */
 }
 
@@ -57,7 +57,7 @@
 }
 
 .markdown .callout p {
-  color: #CBD5E1; /* text-slate-300 */
+  color: var(--ifm-font-color-base); /* text-slate-300 */
   font-size: 0.875rem; /* text-sm */
   line-height: 1.5; /* leading-normal */
   margin-top: 0;
