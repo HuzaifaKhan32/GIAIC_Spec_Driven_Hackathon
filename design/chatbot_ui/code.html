@@ -1,136 +1,202 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --widget-background: #ffffff;
+            --user-message-bg: #007bff;
+            --bot-message-bg: #e9ecef;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Chatbot UI - AI Robotics Book</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24;
-            line-height: 1; /* Ensure vertical alignment */
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            margin: 0;
         }
+
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        .chatbot-widget {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background-color: var(--widget-background);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .chatbot-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 80%;
+            line-height: 1.4;
+        }
+
+        .message.user {
+            background-color: var(--user-message-bg);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.bot {
+            background-color: var(--bot-message-bg);
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .chatbot-footer {
+            padding: 10px 15px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chatbot-input {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .chatbot-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+
+        .chatbot-send {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        @media (max-width: 480px) {
+            .chatbot-widget {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+
+            .chatbot-toggle {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
     </style>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#3c3cf6",
-                        "background-light": "#f5f5f8",
-                        "background-dark": "#101022",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.5rem",
-                        "lg": "1rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark antialiased">
-<div class="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden p-4">
-<!-- Background content placeholder -->
-<div class="absolute inset-0 z-0">
-<div class="flex h-full w-full items-center justify-center">
-<div class="text-center">
-<h1 class="text-4xl font-bold text-slate-700 dark:text-slate-300">AI Robotics Educational Platform</h1>
-<p class="mt-2 text-slate-500 dark:text-slate-400">Main content of the website would be here.</p>
-</div>
-</div>
-</div>
-<!-- Chat Panel -->
-<div class="absolute bottom-24 right-4 flex w-[400px] h-[600px] max-h-[calc(100vh-8rem)] flex-col overflow-hidden rounded-xl border border-white/10 bg-[#1E293B]/80 shadow-2xl shadow-primary/20 backdrop-blur-xl">
-<!-- Header -->
-<div class="flex items-center justify-between border-b border-white/10 p-4">
-<div class="flex items-center gap-4">
-<div class="relative">
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-10 w-10" data-alt="AI assistant avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuALPj6PzlxLmIO_-_1UapXXP6CquTzECxOqKfJXVakHc5qKWP7d-YU79vYkEIQMJ5VKLyDJeV6jdxzNrvsxIIUUe8x3yacfCBd_xvmCTw_c3qXEZn0v5SJWGCWICPWI2bXe02TKJ4DMiGYIH1HF-GhLmwxf1l0RSTeqbvOVPg84qULdeEsjkdvPlPsNHTk7DoMolqQDnvNnFYSQFcNG9rK4cQCR61K35O6BWlb7ENfC3-nrkx8xMpsV4ZX7glKCwtWIda8FYKui1Lpa");'></div>
-<div class="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-[#1E293B] bg-green-500"></div>
-</div>
-<div class="flex flex-col">
-<p class="text-white text-base font-bold leading-tight">AI Book Assistant</p>
-<p class="text-xs font-normal leading-normal text-[#9c9cba]">Powered by Gemini</p>
-</div>
-</div>
-<div class="flex items-center gap-2">
-<button class="text-slate-400 hover:text-white transition-colors">
-<span class="material-symbols-outlined text-xl"> horizontal_rule </span>
-</button>
-<button class="text-slate-400 hover:text-white transition-colors">
-<span class="material-symbols-outlined text-xl"> close </span>
-</button>
-</div>
-</div>
-<!-- Messages Area -->
-<div class="flex-1 space-y-4 overflow-y-auto p-4">
-<!-- AI Welcome Message -->
-<div class="flex gap-3">
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0" data-alt="AI assistant avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJgVeCR0Xkr9Es7Ce3RHTs3CM4-4RdKf1jjVcqcH95eFG_HSjqV5cqsrk5zBXJ2kW-ubqNZdaN-BWWLFyrHAyHCAAa4orVbipifhYWlMlDWv6x1gtcpik8L9gKnF9FtedmNVGx6E6foDCSmmQ1lcL4V0GpxsZBeCLp6CiArJpe3aedNPtZ3zq14sKZHkJN_NnuH4JvtM21yqpnDvsWnfCmbyoXga8PMug019oZJlG23eQ7S8drgJ2RNeRcW1mOUVjbSzSyWuJWJPMI");'></div>
-<div class="flex flex-1 flex-col items-start gap-2">
-<div class="flex flex-col gap-2 rounded-lg rounded-tl-none bg-[#334155] p-3 text-white border-l-2 border-[#22D3EE]">
-<p class="text-sm font-normal leading-normal">
-                                Welcome! I can help you with topics from the AI Robotics book. Feel free to ask me anything about machine learning, neural networks, or specific chapters.
-                            </p>
-</div>
-</div>
-</div>
-<!-- User Message -->
-<div class="flex justify-end items-start gap-3">
-<div class="flex flex-col items-end">
-<p class="text-sm font-normal leading-normal max-w-xs rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] px-3 py-2 text-white">Can you explain the basics of Q-learning?</p>
-</div>
-</div>
-<!-- Typing Indicator -->
-<div class="flex gap-3">
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0" data-alt="AI assistant avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxw5QY5rtA0J3OY2RADQR3TyStdAJ6lb7jm0ADaBd0le7MA__azrXUeeDqv4C8yhzcmDEHG_MdSGqujIt9Wybd5-VQ7bW-dEUnu0yzPhO-p8wB7-ax94py9BmAcO8WzBjPA_JCTxUXyULXJ3T0JCLZZHMBIhtNwLWLPxIIWsjt56-FcF0rkc9WkEzEHKALiA2-DQ4TYZrN9NvZVjBTyS8iZH4YWlSr7nveVE2yCumoqMDJBQnxcJKlRTLd4ut1YLhAFLu7GXV_DC16");'></div>
-<div class="flex items-center space-x-1.5 rounded-lg bg-[#334155] p-3">
-<div class="h-2 w-2 animate-[pulse_1.5s_ease-in-out_infinite] rounded-full bg-gradient-to-r from-[#06B6D4] to-[#3B82F6]"></div>
-<div class="h-2 w-2 animate-[pulse_1.5s_ease-in-out_0.2s_infinite] rounded-full bg-gradient-to-r from-[#06B6D4] to-[#3B82F6]"></div>
-<div class="h-2 w-2 animate-[pulse_1.5s_ease-in-out_0.4s_infinite] rounded-full bg-gradient-to-r from-[#06B6D4] to-[#3B82F6]"></div>
-</div>
-</div>
-<!-- AI Response with Citation -->
-<div class="flex gap-3">
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0" data-alt="AI assistant avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1x22Wm0HzaMDHm0ziR2M1qKD83kMtdWxMGgE0r8AHAvEJkwiPcicT8LDvxgGNdEvTT8oojV2NOYyVb4YnHI2zyjhnI8b9qOqJVtzQ3EZFBcxyVFSGiX8UdQ7BSrUeiiP7Qw9RkGwIY-wlOW5OMnlNpA1HVNbu8pjYcOaiumaQiV7CK2pwxG2lJeiN6tLTDcdngGjT-oAMZK6zVzGvoyh0FG5dbFG2Rv49EMXf6vUB_05m8JoOrZ-SsX3bfp6hyUEPyrYzr1SMQ_Sh");'></div>
-<div class="flex flex-1 flex-col items-start gap-2">
-<div class="flex flex-col gap-2 rounded-lg rounded-tl-none bg-[#334155] p-3 text-white border-l-2 border-[#22D3EE]">
-<p class="text-sm font-normal leading-normal">
-                                Of course. Q-learning is a model-free reinforcement learning algorithm to learn a policy telling an agent what action to take under what circumstances. It's considered off-policy because the q-learning function learns from actions that are outside the current policy, like taking random actions, and therefore a policy is not needed.
-                                <button class="inline-block align-middle ml-1 px-2 py-0.5 text-xs font-medium rounded-full bg-gradient-to-r from-[#A78BFA] to-[#3B82F6] text-white hover:opacity-90">Ch. 4, Pg. 98</button>
-</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Input Area -->
-<div class="border-t border-white/10 p-4">
-<div class="flex items-center gap-2 rounded-lg bg-[#0F172A] p-1 focus-within:ring-2 focus-within:ring-[#A78BFA]">
-<input class="flex-1 bg-transparent px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none border-0 focus:ring-0" placeholder="Ask about AI &amp; Robotics..." type="text"/>
-<button class="flex items-center justify-center rounded-md bg-gradient-to-br from-[#06B6D4] to-[#3B82F6] p-2 text-white transition-opacity hover:opacity-90">
-<span class="material-symbols-outlined text-xl"> send </span>
-</button>
-</div>
-</div>
-</div>
-<!-- FAB -->
-<div class="absolute bottom-4 right-4">
-<button class="flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-[#A78BFA] to-pink-500 text-white shadow-lg shadow-primary/40 transition-transform hover:scale-110">
-<span class="material-symbols-outlined text-3xl"> smart_toy </span>
-</button>
-</div>
-</div>
-</body></html>
+<body>
+
+    <button class="chatbot-toggle">🤖</button>
+
+    <div class="chatbot-widget" id="chatbot-widget">
+        <div class="chatbot-header">
+            <span>Chat with us</span>
+            <button class="chatbot-close" id="chatbot-close">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="message bot">Hello! How can I help you today?</div>
+            <div class="message user">I have a question about my order.</div>
+             <div class="message bot">Sure, I can help with that. What's your order number?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type a message...">
+            <button class="chatbot-send">&#10148;</button>
+        </div>
+    </div>
+
+    <script>
+        const chatbotToggle = document.querySelector('.chatbot-toggle');
+        const chatbotWidget = document.getElementById('chatbot-widget');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatbotInput = document.getElementById('chatbot-input');
+
+        chatbotToggle.addEventListener('click', () => {
+            if (chatbotWidget.style.display === 'none' || chatbotWidget.style.display === '') {
+                chatbotWidget.style.display = 'flex';
+                chatbotInput.focus();
+            } else {
+                chatbotWidget.style.display = 'none';
+            }
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWidget.style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>

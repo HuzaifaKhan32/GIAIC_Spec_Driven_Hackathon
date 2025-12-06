@@ -64,12 +64,12 @@
 
 ## Phase 5: 004-Embedded-Chatbot-Widget (Frontend)
 
-- [ ] TASK-04-01 Create Chatbot Widget container component in `docusaurus/src/components/Chatbot/index.tsx`
-- [ ] TASK-04-02 Implement chat input and message list UI in `docusaurus/src/components/Chatbot/ChatUI.tsx`
-- [ ] TASK-04-03 Implement API client service to fetch from backend in `docusaurus/src/services/chatService.ts`
-- [ ] TASK-04-04 [P] Add loading state (typing indicator) and error handling in `docusaurus/src/components/Chatbot/ChatUI.tsx`
-- [ ] TASK-04-05 Integrate Chatbot into global layout via `docusaurus/src/theme/Layout.js` wrapper
-- [ ] TASK-04-06 Style Chatbot to match Custom CSS Theme in `docusaurus/src/css/chatbot.css`
+- [x] TASK-04-01 Create Chatbot Widget container component in `docusaurus/src/components/Chatbot/index.tsx`
+- [x] TASK-04-02 Implement chat input and message list UI in `docusaurus/src/components/Chatbot/ChatUI.tsx`
+- [x] TASK-04-03 Implement API client service to fetch from backend in `docusaurus/src/services/chatService.ts`
+- [x] TASK-04-04 [P] Add loading state (typing indicator) and error handling in `docusaurus/src/components/Chatbot/ChatUI.tsx`
+- [x] TASK-04-05 Integrate Chatbot into global layout via `docusaurus/src/theme/Layout.js` wrapper
+- [x] TASK-04-06 Style Chatbot to match Custom CSS Theme in `docusaurus/src/css/chatbot.css`
 
 ## Phase 6: 006-OAuth-Authentication (Better-Auth)
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import ChatbotWidget from '../components/ChatbotWidget/ChatbotWidget'; // Import the ChatbotWidget
 import '../css/homepage.css';
 import '../css/responsive.css';
 
@@ -98,6 +99,7 @@ export default function Home(): JSX.Element {
             <button className="cta-button">Start Learning Now</button>
           </div>
         </section>
+        <ChatbotWidget /> {/* Render ChatbotWidget at the end of main */}
       </main>
     </Layout>
   );

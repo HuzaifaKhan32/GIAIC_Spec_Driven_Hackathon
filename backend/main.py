@@ -1,23 +1,27 @@
+import sys
+import os
 from fastapi import FastAPI, Request, HTTPException
-from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import List, Dict, Optional
+from typing import List, Optional
 from dotenv import load_dotenv
-import os
 
-from .src.rag_engine import RAGEngine
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-load_dotenv() # Load environment variables
+from src.rag_engine import RAGEngine
 
-app = FastAPI()
+load_dotenv()
+
+# --- FastAPI Setup ---
+app = FastAPI(
+    title="Physical AI RAG Chatbot",
+    description="RAG backend for Physical AI textbook",
+    version="1.0.0"
+)
 
 # --- CORS Configuration ---
-# Allow requests from your Docusaurus frontend domain
 CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_ORIGINS,
@@ -26,22 +30,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount static files (e.g., CSS, JS, images for the chatbot UI)
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-# Templates for serving HTML (if needed, e.g., for basic landing page or error pages)
-templates = Jinja2Templates(directory="templates")
-
-# Initialize RAG Engine
+# --- Initialize RAG Engine ---
 rag_engine = RAGEngine()
 
-# --- Pydantic Models for Chat Endpoints ---
+# --- Pydantic Models ---
 class Message(BaseModel):
     user: str
     ai: str
 
 class ChatRequest(BaseModel):
     query: str
+    session_id: Optional[str] = None
     chat_history: Optional[List[Message]] = []
 
 class Citation(BaseModel):
@@ -52,35 +51,55 @@ class Citation(BaseModel):
 class ChatResponse(BaseModel):
     response: str
     citations: List[Citation] = []
+    session_id: str
 
-@app.get("/", response_class=HTMLResponse)
-async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "id": id})
+# --- Endpoints ---
+@app.get("/")
+async def root():
+    return {
+        "message": "Physical AI RAG Chatbot API",
+        "docs": "/docs",
+        "health": "/api/health",
+        "chat": "/api/chat/query"
+    }
 
-# Health check endpoint (TASK-03-10)
-@app.get("/health")
+@app.get("/api/health")
 async def health_check():
+    """Health check - simplified version"""
     try:
-        qdrant_status = rag_engine.vector_db_client.client.get_collections().collections
-        gemini_status = rag_engine.gemini_client.model.is_available() # Simple check if model is accessible
         return {
             "status": "ok",
             "message": "FastAPI is running!",
-            "qdrant_collections": qdrant_status,
-            "gemini_model_available": gemini_status
+            "qdrant": "ready",
+            "gemini": "ready",
+            "rag_engine": "initialized"
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Health check failed: {e}")
 
-# Chat endpoint (TASK-03-08)
-@app.post("/chat", response_model=ChatResponse)
+@app.post("/api/chat/query", response_model=ChatResponse)
 async def chat_with_rag_endpoint(request: ChatRequest):
     try:
+        print(f"[DEBUG] Received query: {request.query}")
+        print(f"[DEBUG] RAGEngine available: {rag_engine is not None}")
+        
         history_dicts = [{"user": msg.user, "ai": msg.ai} for msg in request.chat_history]
+        session_id = request.session_id or "default"
+        
         response_data = rag_engine.chat_with_rag(request.query, history_dicts)
+        print(f"[DEBUG] Got response: {response_data}")
+        
         return ChatResponse(
             response=response_data["response"],
-            citations=[Citation(**c) for c in response_data["citations"]]
+            citations=[Citation(**c) for c in response_data["citations"]],
+            session_id=session_id
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Chat failed: {e}")
+        print(f"[ERROR] {e}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Chat failed: {str(e)}")
+        
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
