@@ -57,6 +57,14 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ backendUrl }) => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('chatbot-open');
+    } else {
+      document.body.classList.remove('chatbot-open');
+    }
+  }, [isOpen]);
+
   // Initial Welcome Message
   useEffect(() => {
     if (isClient && messages.length === 0) {

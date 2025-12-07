@@ -242,3 +242,14 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+@media (max-width: 480px) {
+  .features-section .section-title,
+  .features-section .section-description {
+    text-align: center;
+  }
+
+  .chapters-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

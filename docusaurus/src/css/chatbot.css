@@ -302,6 +302,10 @@
   z-index: 998;
 }
 
+.chatbot-open .chatbot-fab {
+  z-index: 998;
+}
+
 /* Adjust FAB position on smaller screens */
 @media (max-width: 500px) {
   .chatbot-fab {
