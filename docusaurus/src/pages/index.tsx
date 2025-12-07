@@ -7,7 +7,7 @@ import '../css/responsive.css';
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
-  const backendUrl = (siteConfig.customFields?.backendUrl as string) || 'http://localhost:8000';
+  const backendUrl = "https://giaicspecdrivenhackathon-production.up.railway.app/api/chat/query";
 
   return (
     <Layout

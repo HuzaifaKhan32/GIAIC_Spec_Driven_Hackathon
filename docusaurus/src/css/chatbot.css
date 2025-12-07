@@ -195,7 +195,6 @@
 * ⌨️ Input Area
 */
 .chatbot-input-area {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding: 1rem;
   background-color: rgba(30, 41, 59, 0.7); /* Subtle background for contrast */
 }
