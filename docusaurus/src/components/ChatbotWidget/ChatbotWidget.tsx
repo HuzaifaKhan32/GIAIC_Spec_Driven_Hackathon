@@ -159,7 +159,6 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ backendUrl }) => {
             </div>
             <div className={styles.headerText}>
               <p className={styles.headerTitle}>AI Book Assistant</p>
-              <p className={styles.headerSubtitle}>Powered by Gemini</p> {/* Added back for design */}
             </div>
           </div>
           <div className={styles.headerActions}>

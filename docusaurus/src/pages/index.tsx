@@ -7,7 +7,7 @@ import '../css/responsive.css';
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
-  
+
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
@@ -24,8 +24,8 @@ export default function Home(): JSX.Element {
             <a href="/docs/intro/intro-physical-ai" className="hero-button">
               Explore the Future
             </a>
-            <div 
-              className="hero-image" 
+            <div
+              className="hero-image"
               style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDpM4aQkC-pJakvWoUyJ6A6os7Ot6mMlofDYrpCDt7qk5THgnn8kdBejUvhjxmpPdtN6Z4mHf9P_eamwx-8WtLGdgPWh8ws5-pxr4ozChPmA2-QH__sOH_q-mZxOmyjStrfygLBz0I3HyuTxYEb9zFeAzvGKLlxGLaetlsD-1UuYoi-hmJtJVEqyyofz3ydr-p5lW0EAEMWgwpxQ3QHZeEDXLodiCsLjvWVZwHinhR-eDd5v3L54SFEZyUDvL0Dnp3_EWRe5zuRb1uc")'}}
               role="img"
               aria-label="3D isometric robot illustration"
@@ -66,14 +66,60 @@ export default function Home(): JSX.Element {
             <h2 className="section-title">A Glimpse Inside</h2>
             <div className="chapters-grid">
               {[
-                { title: 'Ch. 1: Foundations of AI', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9jqRPX1c0PxhRHDkSahiPpI6gE9J4bYhbmZsGmP9PI9QExQE1Pk57bZrgsL59trQWqT9pPT4m7HWmPrDPGcAkZxxp6iJkC0UR_CYJkrVjT5a2b6TUFETFrcqL6LlUryJDL4VmSbnkgPE3xHZU1mW2S-STaAnWYNb3z94BSVcLCosxMqFwIWkRBZt8VZzBwtuk3QPtFU5MqcOQr0b6tYk3Assyp9QIJgVP1NPDrf8KwYMAOm8i_Dq9WFQW7vZ5iXQ9HZTvh0GXgWhS' },
-                { title: 'Ch. 2: Python for Robotics', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCvVkGDbZIbWl8HeIAQRs-YWpWKeG6yu9QFK820SfUUvU2h2qywnx1iTCDaBqw2KeHfY2O47MirPSWcXk_sEYWNVsUvQVeDWyixG4drYTfaCHKY_7YginOUwKXWw-twIZetsZ7wChSkTVgbfccqPNOmsYQ2e1osNBmr6Z4uqBmdRjuZ956CbLL-CXKQZcGivCUk1WBtaiV4eHeQkjDPr1WxuvHytr2aY-VwUd1chOew3uZekqve4wp6hA7VDL9ZX3wlj-djHru3dSGe' },
-                { title: 'Ch. 3: ML Principles', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD1knWRHZPJaw93UCwWpMCDvWe_ZEcE-d6ee9q5X0KLh-xHdPP93gx1KApbAWJ6Y0iqqLzcWAryoLWCMWiF7-HDIEXw2oqPGw_20jLubC3kfNvGD8qsaO6h8Aysg_rF9AR7kJ5LkPqzRiqPAHHTqYcG5UWXz6GyedOXWUqEsIrYI3F6KoUWxY283rGbOGFL9lW5L8HFBWzKW6cD4ht5AwQX9-8tLL37RyYiqiQDpzr0AhkeNfvgUBLWi_y7aUgNQRBcz9LF2zb486YX' },
-                { title: 'Ch. 4: Deep Learning', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2zQvK5dGw0ejU3pWV0vvx8ABHs6xBnYj8li6L6Ep5dGPfBLOOPVdAiQk_FObbTDmvCiOS18TbF4cvFBFI2Z02x5BTjEG7Z-Y3XKQvbwazreEcZVyAJHRoBiUPRLd6w4dkEjeFEM0Se9tiFbpddaGn7cAAdqQfIv-DVDkpjTGKi_NcHWfk-ck7GJtsChcJgrSwAc1fO3Q_-hrDO5Pp82gt4dTeqyHLqwoMc92niTKVaz-Xbn9YCVx3MzIkBmHvHEBffG5DfoPZ5eT' },
+                {
+                  title: 'Ch. 1: Intro to Physical AI',
+                  link: '/docs/intro/intro-physical-ai',
+                  img: 'https://frankdiana.net/wp-content/uploads/2024/02/humanoid-robot-and-ai.png',
+                },
+                {
+                  title: 'Ch. 2: Sensors and Actuators',
+                  link: '/docs/fundamentals/sensors-and-actuators',
+                  img: 'https://tse3.mm.bing.net/th/id/OIP.K23vKSOckjEG3dlgfv5LyAHaLG?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+                },
+                {
+                  title: 'Ch. 3: Kinematics and Dynamics',
+                  link: '/docs/fundamentals/kinematics-and-dynamics',
+                  img: 'https://tse1.mm.bing.net/th/id/OIP.0xZXJU9mUB7XlJzqmg7x9QHaEO?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+                },
+                {
+                  title: 'Ch. 4: Computer Vision',
+                  link: '/docs/applications/computer-vision',
+                  img: 'https://tse3.mm.bing.net/th/id/OIP.WHPLWf29bGuoYMTW-ykmSQHaEK?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+                },
+                {
+                  title: 'Ch. 5: RL Basics',
+                  link: '/docs/applications/rl-basics',
+                  img: 'https://amostofi.com/wp-content/uploads/2024/01/what-is-rl-machine-learning-min.jpg',
+                },
+                {
+                  title: 'Ch. 6: Sim2Real',
+                  link: '/docs/applications/sim-to-real',
+                  img: 'https://mikekalil.com/wp-content/uploads/2025/05/sim2real-gap-illustration.png',
+                },
+                {
+                  title: 'Ch. 7: Humanoid Locomotion',
+                  link: '/docs/advanced/humanoid-locomotion',
+                  img: 'https://roboticsbiz.com/wp-content/uploads/2025/05/humanoid-739x420.jpg',
+                },
+                {
+                  title: 'Ch. 8: Manipulation and Grasping',
+                  link: '/docs/advanced/manipulation-and-grasping',
+                  img: 'https://tse1.mm.bing.net/th/id/OIP.thtwtx32TzQqx3LsjaHAnAHaFV?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+                },
+                {
+                  title: 'Ch. 9: Human-Robot Interaction',
+                  link: '/docs/advanced/human-robot-interaction',
+                  img: 'https://static.vecteezy.com/system/resources/thumbnails/023/435/685/original/a-humanoid-robot-has-been-created-utilizing-counterfeit-insights-to-take-after-a-human-being-creative-resource-animation-free-video.jpg',
+                },
+                {
+                  title: 'Ch. 10: Future of Humanoids',
+                  link: '/docs/resources/future-of-humanoids',
+                  img: 'https://tse3.mm.bing.net/th/id/OIP.S_-aPX0rfCcFZkntdLxL4AEsEs?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+                },
               ].map((chapter, idx) => (
-                <div key={idx} className="chapter-card" style={{backgroundImage: `url("${chapter.img}")`}}>
+                <a href={chapter.link} key={idx} className="chapter-card" style={{backgroundImage: `url("${chapter.img}")`}}>
                   <p className="chapter-title">{chapter.title}</p>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -99,7 +145,7 @@ export default function Home(): JSX.Element {
             <button className="cta-button">Start Learning Now</button>
           </div>
         </section>
-        <ChatbotWidget backendUrl={siteConfig.customFields.backendUrl as string} /> {/* Render ChatbotWidget at the end of main */}
+        <ChatbotWidget /> {/* Render ChatbotWidget at the end of main */}
       </main>
     </Layout>
   );

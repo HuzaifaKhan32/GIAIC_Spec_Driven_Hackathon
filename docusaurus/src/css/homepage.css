@@ -129,10 +129,16 @@
 
 .chapters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .chapters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .chapter-card {
@@ -224,4 +230,15 @@
   opacity: 0.9;
   text-decoration: none;
   color: var(--color-primary);
+}
+
+@media (max-width: 480px) {
+  .features-section .section-title,
+  .features-section .section-description {
+    text-align: center;
+  }
+
+  .chapters-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
