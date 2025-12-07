@@ -63,7 +63,7 @@ const config: Config = {
       disableSwitch: false,
     },
     navbar: {
-      title: 'Physical AI',
+      title: 'Physical AI & Humanoid Robotics',
       logo: {
         alt: 'Physical AI Logo',
         src: 'img/logo.svg',

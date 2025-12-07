@@ -6,12 +6,10 @@
  * This component wraps the original Docusaurus Layout and adds a globally-visible
  * chatbot, complete with error boundaries and hydration safety.
  */
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect } from 'react';
 import OriginalLayout from '@theme-original/Layout';
 import styles from './layout.module.css';
-
-// Lazy load the ChatbotWidget for better initial page performance
-const ChatbotWidget = lazy(() => import('@site/src/components/ChatbotWidget/ChatbotWidget'));
+import ChatbotWidget from '@site/src/components/ChatbotWidget/ChatbotWidget';
 
 /**
  * A simple React Error Boundary component.
@@ -69,9 +67,7 @@ const SafeChatbot = () => {
       aria-label="Chatbot"
     >
       <ChatbotErrorBoundary>
-        <Suspense fallback={<div className={styles.chatbotLoading}>Loading...</div>}>
           <ChatbotWidget />
-        </Suspense>
       </ChatbotErrorBoundary>
     </div>
   );

@@ -70,7 +70,7 @@ export default function Home(): JSX.Element {
                 {
                   title: 'Ch. 1: Intro to Physical AI',
                   link: '/docs/intro/intro-physical-ai',
-                  img: 'https://frankdiana.net/wp-content/uploads/2024/02/humanoid-robot-and-ai.png',
+                  img: 'https://frankdiana.net/wp-content/uploads/2024/02/humanoid-robot-and-ai.png',     
                 },
                 {
                   title: 'Ch. 2: Sensors and Actuators',
@@ -95,7 +95,7 @@ export default function Home(): JSX.Element {
                 {
                   title: 'Ch. 6: Sim2Real',
                   link: '/docs/applications/sim-to-real',
-                  img: 'https://mikekalil.com/wp-content/uploads/2025/05/sim2real-gap-illustration.png',
+                  img: 'https://mikekalil.com/wp-content/uploads/2025/05/sim2real-gap-illustration.png',  
                 },
                 {
                   title: 'Ch. 7: Humanoid Locomotion',
