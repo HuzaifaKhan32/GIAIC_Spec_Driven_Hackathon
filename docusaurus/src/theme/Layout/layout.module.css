@@ -1,0 +1,74 @@
+/**
+ * styles/layout.module.css
+ *
+ * Safe, responsive, and theme-aware styles for the global chatbot container.
+ */
+
+.chatbotContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999; /* Below modals (1000+) but above most content */
+  width: 400px;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Light Theme Styles */
+[data-theme='light'] .chatbotContainer {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+/* Dark Theme Styles */
+[data-theme='dark'] .chatbotContainer {
+  background-color: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Fallback for prefers-color-scheme if data-theme is not available */
+@media (prefers-color-scheme: dark) {
+  .chatbotContainer:not([data-theme='light']) {
+    background-color: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 1024px) {
+  .chatbotContainer {
+    width: 360px;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .chatbotContainer {
+    width: calc(100% - 30px); /* Full width with padding */
+    bottom: 15px;
+    right: 15px;
+    max-height: calc(100vh - 30px);
+  }
+}
+
+/* Hide on very small screens to prevent layout breakage */
+@media (max-width: 320px) {
+  .chatbotContainer {
+    display: none;
+  }
+}
+
+.chatbotLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: var(--ifm-font-color-base);
+}

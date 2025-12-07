@@ -7,6 +7,7 @@ import '../css/responsive.css';
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
+  const backendUrl = (siteConfig.customFields?.backendUrl as string) || 'http://localhost:8000';
 
   return (
     <Layout
@@ -145,7 +146,7 @@ export default function Home(): JSX.Element {
             <button className="cta-button">Start Learning Now</button>
           </div>
         </section>
-        <ChatbotWidget /> {/* Render ChatbotWidget at the end of main */}
+        <ChatbotWidget backendUrl={backendUrl} /> {/* Render ChatbotWidget at the end of main */}
       </main>
     </Layout>
   );
