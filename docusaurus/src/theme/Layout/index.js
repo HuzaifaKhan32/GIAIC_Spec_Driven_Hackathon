@@ -49,6 +49,7 @@ class ChatbotErrorBoundary extends React.Component {
  */
 const SafeChatbot = () => {
   const [isClient, setIsClient] = useState(false);
+  const backendUrl = "https://ragbackend-production-977a.up.railway.app/api/chat/query";
 
   // useEffect runs only on the client, so we can safely set isClient to true.
   useEffect(() => {
@@ -67,7 +68,7 @@ const SafeChatbot = () => {
       aria-label="Chatbot"
     >
       <ChatbotErrorBoundary>
-          <ChatbotWidget />
+          <ChatbotWidget backendUrl={backendUrl} />
       </ChatbotErrorBoundary>
     </div>
   );
