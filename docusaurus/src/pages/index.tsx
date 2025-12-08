@@ -7,7 +7,7 @@ import '../css/responsive.css';
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
-  const backendUrl = "https://ragbackend-production-977a.up.railway.app/api/chat/query";
+  const { backendUrl } = siteConfig.customFields;
 
   return (
     <Layout

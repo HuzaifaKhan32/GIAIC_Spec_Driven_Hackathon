@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react';
 import OriginalLayout from '@theme-original/Layout';
 import styles from './layout.module.css';
 import ChatbotWidget from '@site/src/components/ChatbotWidget/ChatbotWidget';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 /**
  * A simple React Error Boundary component.
@@ -49,7 +50,8 @@ class ChatbotErrorBoundary extends React.Component {
  */
 const SafeChatbot = () => {
   const [isClient, setIsClient] = useState(false);
-  const backendUrl = "https://ragbackend-production-977a.up.railway.app/api/chat/query";
+  const { siteConfig } = useDocusaurusContext();
+  const { backendUrl } = siteConfig.customFields;
 
   // useEffect runs only on the client, so we can safely set isClient to true.
   useEffect(() => {
