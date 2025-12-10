@@ -1,0 +1,460 @@
+/* General Variables */
+:root {
+  /* Using Docusaurus CSS variables for better integration */
+  --ifm-navbar-height: 60px;
+  --primary-color: #3B82F6;
+  --secondary-color: #8B5CF6;
+  --glow-color: #3B82F6;
+}
+
+/* Theme-aware styles */
+html[data-theme='dark'] {
+  --background-color: #1a202c;
+  --text-color: #F9FAFB;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --code-bg-color: #2d2d2d;
+}
+
+html[data-theme='light'] {
+  --background-color: #ffffff;
+  --text-color: #111827;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --code-bg-color: #f6f8fa;
+}
+
+/*
+ The 'navbar' and 'navbar--fixed-top' classes from Docusaurus handle the core layout.
+ We only override specific styles.
+*/
+.navbar-container {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 1rem;
+  height: var(--ifm-navbar-height);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit !important;
+}
+
+.logo-img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Use h1 for SEO, but style it like a p */
+.navbar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  /* Always visible */
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-links-desktop,
+.navbar-buttons-desktop {
+  display: none; /* Mobile-first: hidden by default */
+}
+
+.navbar-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar-link:hover {
+  color: var(--primary-color);
+}
+
+.theme-toggle-button {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.navbar-login-button {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+}
+
+/* Mobile Toggle Button Styling */
+.navbar-mobile-toggle {
+  display: block; /* Shown on mobile */
+}
+
+.mobile-toggle-button {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.4rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile Menu */
+.mobile-menu-container {
+  position: fixed; /* Use fixed to float over content */
+  top: var(--ifm-navbar-height);
+  right: 1rem;
+  z-index: 200; /* High z-index to be on top */
+}
+
+.mobile-menu-box {
+  width: 240px;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.mobile-menu-links .navbar-link {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+}
+
+
+.mobile-menu-divider {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 0.5rem 0;
+}
+
+.mobile-menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.mobile-menu-buttons .theme-toggle-button {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+/* Media Queries for Desktop */
+@media (min-width: 997px) { /* Docusaurus default breakpoint */
+  .navbar-links-desktop, .navbar-buttons-desktop {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .navbar-mobile-toggle {
+    display: none;
+  }
+}
+
+
+/* Footer Styles (Copied from previous turn for completeness) */
+.custom-footer {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 4rem 1.5rem 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.footer-logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo-img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.footer-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-column h4 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.footer-column a {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.footer-column a:hover {
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+@media (min-width: 640px) {
+  .footer-links-container {
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: left;
+  }
+  .footer-top-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+  }
+   .footer-logo-area {
+    align-items: flex-start;
+  }
+}
+
+/* Utility & Animation */
+.glassmorphism {
+  background: rgba(var(--background-color-rgb, 45, 55, 72), 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+html[data-theme='dark'] .glassmorphism { --background-color-rgb: 26, 32, 44; }
+html[data-theme='light'] .glassmorphism { --background-color-rgb: 255, 255, 255; }
+
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px; right: -2px; bottom: -2px; left: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+.slide-in {
+  animation: slide-in-down 0.3s ease-out forwards;
+}
+
+@keyframes slide-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Markdown Styling within Chatbot messages */
+.chatbotMessages .messageText p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.chatbotMessages .messageText h1,
+.chatbotMessages .messageText h2,
+.chatbotMessages .messageText h3,
+.chatbotMessages .messageText h4,
+.chatbotMessages .messageText h5,
+.chatbotMessages .messageText h6 {
+  color: var(--text-color);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.chatbotMessages .messageText h1 { font-size: 1.5rem; }
+.chatbotMessages .messageText h2 { font-size: 1.4rem; }
+.chatbotMessages .messageText h3 { font-size: 1.3rem; }
+.chatbotMessages .messageText ul,
+.chatbotMessages .messageText ol {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.chatbotMessages .messageText li {
+  margin-bottom: 0.25rem;
+}
+.chatbotMessages .messageText code {
+  background-color: var(--code-bg-color);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-size: 85%;
+  color: var(--text-color);
+}
+.chatbotMessages .messageText pre {
+  background-color: var(--code-bg-color);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+.chatbotMessages .messageText pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 100%;
+  color: inherit;
+}
+
+/* --- Beautiful Sidebar Scrollbar --- */
+/* This targets the scrollable container for the doc sidebar */
+.theme-doc-sidebar-menu {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) transparent;
+}
+
+.theme-doc-sidebar-menu::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.theme-doc-sidebar-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.theme-doc-sidebar-menu::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: 3px solid var(--ifm-background-color); /* Creates a nice padding effect */
+  transition: background-color 0.3s ease;
+}
+
+.theme-doc-sidebar-menu::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary-color);
+  border-width: 2px;
+}
+
+/* Pagination Navigation Buttons (Previous/Next) */
+.pagination-nav__item {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none !important;
+    color: var(--text-color) !important;
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color);
+    background-color: var(--ifm-card-background-color);
+}
+
+.pagination-nav__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.pagination-nav__item--next {
+  align-items: flex-end; /* Align content to the right */
+}
+
+.pagination-nav__item--prev {
+  align-items: flex-start; /* Align content to the left */
+}
+
+/* Gradient border on hover */
+.pagination-nav__item:hover::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(75deg, var(--primary-color), var(--secondary-color));
+    z-index: 0;
+    border-radius: 12px;
+    animation: glow-pagination 1.5s infinite alternate;
+}
+
+.pagination-nav__item:hover .pagination-nav__sublabel,
+.pagination-nav__item:hover .pagination-nav__label {
+    color: white !important; /* Make text white on hover for contrast */
+}
+
+
+.pagination-nav__sublabel, .pagination-nav__label {
+    position: relative;
+    z-index: 1;
+}
+
+.pagination-nav__sublabel {
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+}
+
+.pagination-nav__label {
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+@keyframes glow-pagination {
+  from { filter: brightness(1) blur(2px); }
+  to { filter: brightness(1.3) blur(4px); }
+}

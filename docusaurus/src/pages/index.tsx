@@ -5,9 +5,9 @@ import ChatbotWidget from '../components/ChatbotWidget/ChatbotWidget'; // Import
 import '../css/homepage.css';
 import '../css/responsive.css';
 
-export default function Home(): JSX.Element {
+export default function Home(): React.JSX.Element {
   const {siteConfig} = useDocusaurusContext();
-  const { backendUrl } = siteConfig.customFields;
+  const backendUrl = (siteConfig.customFields as { backendUrl?: string })?.backendUrl || 'http://localhost:8000';
 
   return (
     <Layout
