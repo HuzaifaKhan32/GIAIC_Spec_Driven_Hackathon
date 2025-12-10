@@ -430,7 +430,7 @@
     vertical-align: middle;
     margin-left: 0.25rem; /* ml-1 */
     padding: 0.125rem 0.5rem; /* px-2 py-0.5 */
-    font-sire: 0.75rem; /* text-xs */
+    font-size: 0.75rem; /* text-xs */
     font-weight: 500; /* font-medium */
     border-radius: 9999px; /* rounded-full */
     color: white;
@@ -500,8 +500,8 @@
   /* --- Mobile Responsiveness (max-width: 500px) --- */
   @media (max-width: 500px) {
     .chatbotContainer {
-      bottom: 0.5rem; /* 10px */
-      right: 0.5rem; /* 10px */
+      bottom: 0; /* 10px */
+      right: 0; /* 10px */
     }
   
     .chatPanel {
@@ -511,7 +511,12 @@
       right: 0;
       border-radius: 0;
       box-shadow: none;
-      max-height: 100vh;
+      max-height: 100vh; /* Subtract mobile browser header size */
+      z-index: 1000;
+    }
+    .chatbotFab{
+      bottom: 0.5rem;
+      right: 0.5rem;
     }
   }
   /* --- Messages Area Scrollbar Control --- */
